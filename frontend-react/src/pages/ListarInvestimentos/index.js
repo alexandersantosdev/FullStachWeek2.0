@@ -69,11 +69,6 @@ function ListarInvestimentos() {
                 dataIndex="data"
                 key="data"
               />
-              <Column
-                title="Categoria"
-                dataIndex="categoria.codigo"
-                key="categoria"
-              />
               
               <Button
                 title="Remover"
