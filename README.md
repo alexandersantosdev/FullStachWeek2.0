@@ -11,6 +11,9 @@
 - Utilizando lib AntDesign
 - axios para as requisições web
 
+### Mobile com React native
+- Utilizando expo
+
 ### Tela de cadastro de investimentos
 
 ![TelaDeCadastro](https://github.com/alexandersantosdev/FullStachWeek2.0/blob/main/CadastrarInvestimento.PNG)
