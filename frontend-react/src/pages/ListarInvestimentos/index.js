@@ -2,17 +2,36 @@ import "antd/dist/antd.css";
 
 import { Table, Button, message, Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import InvestimentoService from '../../services/InvestimentoService';
 
 const { Header, Content, Footer } = Layout;
 const { Column } = Table;
+
 
 function ListarInvestimentos() {
   const [investimentos, setInvestimentos] = useState([]);
 
   const remover = (record) => {
-    message.success("Removido");
+    InvestimentoService.deleteInvestimento(record.codigo).then(r => {
+      refreshInvestimentos();
+      message.success("Removido");
+    });
   };
+
+  const refreshInvestimentos = () =>{
+    InvestimentoService.getAllInvestimentos()
+    .then(res=>{
+      setInvestimentos(res.data)
+     
+    })
+    
+  }
+
+  useEffect(()=>{
+    refreshInvestimentos();
+  },[])
 
   return (
     <div className="container">
@@ -39,17 +58,23 @@ function ListarInvestimentos() {
                 dataIndex="codigoAtivo"
                 key="codigoAtivo"
               />
-              <Column title="Valor" dataIndex="valor" key="valor" />
+              <Column title="Valor" dataIndex="valorCota" key="valorCota" />
               <Column
                 title="Quantidade de cotas"
-                dataIndex="quamtidadeCotas"
+                dataIndex="qtdCotas"
                 key=""
               />
               <Column
                 title="Data da compra"
-                dataIndex="dataCompra"
-                key="dataCompra"
+                dataIndex="data"
+                key="data"
               />
+              <Column
+                title="Categoria"
+                dataIndex="categoria.codigo"
+                key="categoria"
+              />
+              
               <Button
                 title="Remover"
                 key="atualizar"

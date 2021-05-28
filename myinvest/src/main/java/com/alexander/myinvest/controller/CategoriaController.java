@@ -10,6 +10,7 @@ import com.alexander.myinvest.repository.CategoriaRepository;
 
 @RestController
 @RequestMapping("categorias")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CategoriaController {
     
     @Autowired
