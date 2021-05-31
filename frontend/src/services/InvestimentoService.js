@@ -4,21 +4,21 @@ const API_URL = 'http://localhost:8080';
 
 class InvestimentoService{
     
-    async getAllInvestimentos(){
+    getAllInvestimentos(){
         
         return axios.get(`${API_URL}/investimentos`);
     }
 
-    async getOneInvestimentos(Codinvestimento){
-        return await axios.get(`${API_URL}/investimentos/${Codinvestimento}`)
+    getOneInvestimentos(Codinvestimento){
+        return axios.get(`${API_URL}/investimentos/${Codinvestimento}`)
     }
 
-    async saveInvestimento(investimento){
-        return await axios.post(`${API_URL}/investimentos`, investimento);
+    saveInvestimento(investimento){
+        return axios.post(`${API_URL}/investimentos`, investimento);
     }
 
-    async deleteInvestimento(Codinvestimento){
-        await axios.delete(`${API_URL}/investimentos/${Codinvestimento}`);
+    deleteInvestimento(Codinvestimento){
+        axios.delete(`${API_URL}/investimentos/${Codinvestimento}`);
     }
 }
 
